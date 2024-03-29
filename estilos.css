@@ -34,6 +34,7 @@ section {
   border-radius: 32px;
   display: flex;
   flex-direction: column;
+  gap: 24px;
   overflow: hidden;
   position: relative;
   padding: 16px 6px;
@@ -59,9 +60,93 @@ footer {
   align-items: center;
 
   & button {
+    background: url("./tinder-icons.webp");
+    background-position: 0px 0px;
+    background-size: 175px;
     height: 32px;
     width: 32px;
     border-radius: 50%;
     border: 1px solid #ccc;
+    border: 0;
+    cursor: pointer;
+    transition: scale 0.3s ease;
+
+    &:hover {
+      scale: 1.4;
+    }
+
+    &.is-big {
+      background-size: 250px;
+      width: 48px;
+      height: 48px;
+    }
+
+    &.is-undo {
+      background-position: -140px 0;
+    }
+
+    &.is-remove {
+      background-position: -150px 0;
+    }
+
+    &.is-fav {
+      background-position: -49px 0px;
+    }
+
+    &.is-star {
+      background-position: -70px 0;
+    }
+
+    &.is-zap {
+    }
   }
+}
+
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+
+  > article {
+    background: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    z-index: 2;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & h2 {
+      color: white;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      width: 100%;
+      padding: 16px;
+      z-index: 2;
+      background: linear-gradient(0deg, #00000088 20%, transparent 40%);
+    }
+
+    & span {
+      margin-left: 6px;
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+  }
+}
+
+footer {
 }

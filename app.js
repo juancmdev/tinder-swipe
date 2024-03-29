@@ -7,6 +7,7 @@ function startDrag(e) {
 
   //Recuperamos el primer elemento de las cards
   const actualCard = e.target.closest("article");
+  if (!actualCard) return;
 
   //Conseguir la posición inicial del mouse o el dedo
   //console.log(e);
@@ -67,7 +68,7 @@ function startDrag(e) {
     if (decisionMade) {
       //console.log("Desición hecha");
       const goRight = pullDeltaX >= 0;
-      const goLeft = !goRight;
+      //const goLeft = !goRight;
 
       //Adicional la clase de acuerdo a la desición
       actualCard.classList.add(goRight ? "go-right" : "go-left");
@@ -82,6 +83,9 @@ function startDrag(e) {
       //console.log("Pensando");
       actualCard.classList.add("reset");
       actualCard.classList.remove("go-right", "go-left");
+      actualCard.querySelectorAll("choice").forEach((el) => {
+        el.style.opacity = 0;
+      });
     }
 
     //Resetear las variables

@@ -25,8 +25,20 @@ function starDrag(e) {
 
     //Distancia entre la posición inicial y el current
     pullDeltaX = currentX - startX;
+    //console.log(pullDeltaX);
 
-    console.log(pullDeltaX);
+    if (pullDeltaX === 0) return;
+
+    //Cambiar la flag para indicar que estamos animando
+    isAnimating = true;
+
+    //Cálculo de la rotación de la card usando la distancia
+    const deg = pullDeltaX / 10;
+
+    //Aplicar la transformación a la card
+    actualCard.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`;
+    //Cambiar el cursor a grabbing
+    actualCard.style.cursor = "grabbing";
   }
 }
 
